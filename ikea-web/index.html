@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IKEA宜家傢俱</title>
+    <!-- bootstrap-css -->
+    <link rel="stylesheet" href="css/bootstrap-5.3.2.min.css">
+    <!-- JQuery ui css,從網站複製需補打https: -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <!-- JQuery lightbox css -->
+    <link rel="stylesheet" href="css/lightbox.min.css">
+    <!-- 自訂的css權重最重,需放最下方 -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- 符合三種螢幕尺寸的視窗左上角icon,type="image/x-icon"? -->
+    <link rel="icon" type="image/x-icon" href="images/favicon_16px.png">
+    <link rel="icon" type="image/x-icon" href="images/favicon_32px.png">
+    <link rel="icon" type="image/x-icon" href="images/favicon_48px.png">
+</head>
+
+<body>
+    <!-- bootstrap-carousel*bootstrap都用div,沒用html5的標籤,自己改成header* -->
+    <!--------------------------------- 增加.carousel-fade變淡入效果,data-bs-ride="carousel"自動播 -->
+    <header id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel"
+        data-bs-interval="3000" data-bs-pause="false">
+        <!--data-bs-interval="3000"間隔3s,data-bs-pause="false"不因鼠標停在圖片而暫停輪播 -->
+        <!-- 換圖輪播的下方橫條頁籤按鈕 -->
+        <div class="carousel-indicators">
+            <!-- data-bs-slide-to="1"有關js-array陣列功能;aria-label="Slide 2"有關無障礙功能 -->
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+                aria-label="Slide 5"></button>
+        </div>
+        <!-- 五張banner圖片 -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <!-- 圖片設rwd,用<picture>包住<source>放額外尺寸的圖及<img>放原圖 -->
+                <picture>
+                    <source media="(max-width:576px)" srcset="images/banner_1_m.jpg">
+                    <img src="images/banner_1.jpg" class="d-block w-100" alt="...">
+                    <!-- class="d-block w-100"寬度100%的設定,css有自訂的話可刪 -->
+                </picture>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>First slide label</h5>
+                    <p>Some representative placeholder content for the first slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <picture>
+                    <source media="(max-width:576px)" srcset="images/banner_2_m.jpg">
+                    <img src="images/banner_2.jpg" class="d-block w-100" alt="...">
+                </picture>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Second slide label</h5>
+                    <p>Some representative placeholder content for the second slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <picture>
+                    <source media="(max-width:576px)" srcset="images/banner_3_m.jpg">
+                    <img src="images/banner_3.jpg" class="d-block w-100" alt="...">
+                </picture>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Third slide label</h5>
+                    <p>Some representative placeholder content for the third slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <picture>
+                    <source media="(max-width:576px)" srcset="images/banner_4_m.jpg">
+                    <img src="images/banner_4.jpg" class="d-block w-100" alt="...">
+                </picture>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Forth slide label</h5>
+                    <p>Some representative placeholder content for the third slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <picture>
+                    <source media="(max-width:576px)" srcset="images/banner_5_m.jpg">
+                    <img src="images/banner_5.jpg" class="d-block w-100" alt="...">
+                </picture>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Fifth slide label</h5>
+                    <p>Some representative placeholder content for the third slide.</p>
+                </div>
+            </div>
+        </div>
+        <!-- 左右兩端按鈕 -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </header>
+    <!-- bootstrap-navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid"><!-- bs滿版容器class名稱container-fluid -->
+            <!-- logo及品牌名稱 -->
+            <a class="navbar-brand" href="#">
+                <img src="images/ikea-logo.svg" alt="">
+                IKEA
+            </a>
+            <!-- 漢堡按鈕 -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- 主選單 -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">最新消息</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">會員登入</a>
+                    </li>
+                    <li class="nav-item dropdown"><!-- dropdown下拉選單,也可用JQuery簡報p14 -->
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            找產品
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-title">客廳</li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">沙發</a></li>
+                            <li><a class="dropdown-item" href="#">茶几</a></li>
+                            <li class="dropdown-title">臥室</li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">衣櫃</a></li>
+                            <li><a class="dropdown-item" href="#">收納盒</a></li>
+                        </ul>
+                    </li>
+                    <!-- 禁用按鈕 -->
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true" href="#">會員專區</a>
+                    </li>
+                </ul>
+                <!-- 搜尋欄位 -->
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="請輸入產品名稱" aria-label="Search">
+                    <button class="btn btn-outline-secondary btn-search" type="submit">搜尋</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <!-- ikea美食 -->
+        <section id="foods">
+            <!-- 圖片區 -->
+            <div class="food_pt">
+                <!-- figure.food$*2 -->
+                <figure class="food1"><img src="images/food_1.png" alt=""></figure>
+                <figure class="food2"><img src="images/food_2.png" alt=""></figure>
+            </div>
+            <!-- 內容區 -->
+            <div class="food_text">
+                <h2>ikea美食</h2>
+                <p>IKEA邀請你在逛店的過程中到餐廳細細品嚐各式瑞典風味餐點！完成購物後，不妨順道逛逛瑞典食品超市吧！提供美味、豐富多元、永續發展的食材。最後別忘了到美食小站來份美味熱狗、享受霜淇淋的好滋味！</p>
+                <p>瑞典美食外帶服務登場，除了瑞典餐廳，在美食小站也能買到瑞典肉丸等經典主餐！</p>
+                <a href="#">看美食小站專屬外帶菜單</a>
+            </div>
+        </section>
+        <!-- JQuery ui tabs頁籤相簿,把ul頁籤按鈕移到下方 -->
+        <section class="container"><!-- 套用bs默認容器container -->
+            <h2 class="title">最新商品 <span>NEW</span></h2><!-- span是行內元素適合處理文字，不建議改成區塊 -->
+            <div id="tabs">
+                <div id="tabs-1">
+                    <figure><img src="images/new_1.jpg" alt=""></figure>
+                    <div>
+                        <data value="401.109.02">LERSTA</data>
+                        <h1>落地 / 閱讀燈, 鋁質</h1>
+                        <h3>NT.599</h3>
+                        <p>附可調式燈臂，可依需求調整照明方向 可提供適合閱讀的集中式燈光</p>
+                        <details>
+                            <summary>商品尺寸</summary>
+                            <p>高度：131 公分 / 腳直徑：25 公分</p>
+                        </details>
+                    </div>
+                </div>
+                <div id="tabs-2">
+                    <figure><img src="images/new_2.jpg" alt=""></figure>
+                    <div>
+                        <data value="403.657.95">NORDEN</data>
+                        <h1>折疊桌, 白色</h1>
+                        <h3>NT.6,490</h3>
+                        <p>節省空間設計，難怪我們使用折疊桌的時間長達數個世紀；我們賦予這張桌子簡約的北歐風格，增加幾個抽屜，方便放置餐具和餐巾紙</p>
+                        <details>
+                            <summary>商品尺寸</summary>
+                            <p>26/89/152x80 公分</p>
+                        </details>
+                    </div>
+                </div>
+                <div id="tabs-3">
+                    <figure><img src="images/new_3.jpg" alt=""></figure>
+                    <div>
+                        <data value="003.481.28">RABBLA</data>
+                        <h1>附蓋收納盒</h1>
+                        <h3>NT.479</h3>
+                        <p>裝飾衣櫃內部空間或使開放式收納組合更具特色；柔軟的布質收納盒搭配竹蓋，呈現天然、溫暖風格，含多種尺寸可供選擇</p>
+                        <details>
+                            <summary>商品尺寸</summary>
+                            <p>25x35x20 公分</p>
+                        </details>
+                    </div>
+                </div>
+                <div id="tabs-4">
+                    <figure><img src="images/new_4.jpg" alt=""></figure>
+                    <div>
+                        <data value="403.741.39">STOMMA</data>
+                        <h1>時鐘, 白色</h1>
+                        <h3>NT.45</h3>
+                        <p>含靜音石英機芯，不會發出滴答聲 時間準確性高</p>
+                        <details>
+                            <summary>商品尺寸</summary>
+                            <p>20 公分</p>
+                        </details>
+                    </div>
+                </div>
+                <div id="tabs-5">
+                    <figure><img src="images/new_5.jpg" alt=""></figure>
+                    <div>
+                        <data value="801.794.33">MULIG</data>
+                        <h1>吊衣桿, 白色</h1>
+                        <h3>NT.379</h3>
+                        <p>可放在家中任何地方，亦適用於陽台和浴室等潮溼的地方附塑膠底墊，可避免刮傷表面</p>
+                        <details>
+                            <summary>商品尺寸</summary>
+                            <p>99x46 公分</p>
+                        </details>
+                    </div>
+                </div>
+                <ul>
+                    <li><a href="#tabs-1"> <img src="images/new_1.jpg" alt=""></a></li>
+                    <li><a href="#tabs-2"> <img src="images/new_2.jpg" alt=""></a></a></li>
+                    <li><a href="#tabs-3"> <img src="images/new_3.jpg" alt=""></a></a></li>
+                    <li><a href="#tabs-4"> <img src="images/new_4.jpg" alt=""></a></a></li>
+                    <li><a href="#tabs-5"> <img src="images/new_5.jpg" alt=""></a></a></li>
+                </ul>
+            </div>
+        </section>
+        <section  id="hot" class="container">
+            <h2 class="title">熱門商品 <span>HOT</span></h2>
+            <!-- class="row",class="col-6 col-md-4 col-lg-3"是bs網格系統 -->
+            <div class="row">
+                <!-- div.col-6.col-md-4.col-lg-3*26
+                    >(a[href="images/product/pt_$.jpg" data-lightbox="product" data-title="產品名稱$$"]
+                    >img[src="images/product/thumbs/pt_s_$.jpg" alt="產品名稱$$"])
+                    +h2{產品名稱$$}+p{NT.9999} -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_1.jpg" data-lightbox="product" data-title="產品名稱01"><img src="images/product/thumbs/pt_s_1.jpg" alt="產品名稱01"></a>
+                    <h2>產品名稱01</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_2.jpg" data-lightbox="product" data-title="產品名稱02"><img src="images/product/thumbs/pt_s_2.jpg" alt="產品名稱02"></a>
+                    <h2>產品名稱02</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_3.jpg" data-lightbox="product" data-title="產品名稱03"><img src="images/product/thumbs/pt_s_3.jpg" alt="產品名稱03"></a>
+                    <h2>產品名稱03</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_4.jpg" data-lightbox="product" data-title="產品名稱04"><img src="images/product/thumbs/pt_s_4.jpg" alt="產品名稱04"></a>
+                    <h2>產品名稱04</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_5.jpg" data-lightbox="product" data-title="產品名稱05"><img src="images/product/thumbs/pt_s_5.jpg" alt="產品名稱05"></a>
+                    <h2>產品名稱05</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_6.jpg" data-lightbox="product" data-title="產品名稱06"><img src="images/product/thumbs/pt_s_6.jpg" alt="產品名稱06"></a>
+                    <h2>產品名稱06</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_7.jpg" data-lightbox="product" data-title="產品名稱07"><img src="images/product/thumbs/pt_s_7.jpg" alt="產品名稱07"></a>
+                    <h2>產品名稱07</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_8.jpg" data-lightbox="product" data-title="產品名稱08"><img src="images/product/thumbs/pt_s_8.jpg" alt="產品名稱08"></a>
+                    <h2>產品名稱08</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_9.jpg" data-lightbox="product" data-title="產品名稱09"><img src="images/product/thumbs/pt_s_9.jpg" alt="產品名稱09"></a>
+                    <h2>產品名稱09</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_10.jpg" data-lightbox="product" data-title="產品名稱10"><img src="images/product/thumbs/pt_s_10.jpg" alt="產品名稱10"></a>
+                    <h2>產品名稱10</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_11.jpg" data-lightbox="product" data-title="產品名稱11"><img src="images/product/thumbs/pt_s_11.jpg" alt="產品名稱11"></a>
+                    <h2>產品名稱11</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_12.jpg" data-lightbox="product" data-title="產品名稱12"><img src="images/product/thumbs/pt_s_12.jpg" alt="產品名稱12"></a>
+                    <h2>產品名稱12</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_13.jpg" data-lightbox="product" data-title="產品名稱13"><img src="images/product/thumbs/pt_s_13.jpg" alt="產品名稱13"></a>
+                    <h2>產品名稱13</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_14.jpg" data-lightbox="product" data-title="產品名稱14"><img src="images/product/thumbs/pt_s_14.jpg" alt="產品名稱14"></a>
+                    <h2>產品名稱14</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_15.jpg" data-lightbox="product" data-title="產品名稱15"><img src="images/product/thumbs/pt_s_15.jpg" alt="產品名稱15"></a>
+                    <h2>產品名稱15</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_16.jpg" data-lightbox="product" data-title="產品名稱16"><img src="images/product/thumbs/pt_s_16.jpg" alt="產品名稱16"></a>
+                    <h2>產品名稱16</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_17.jpg" data-lightbox="product" data-title="產品名稱17"><img src="images/product/thumbs/pt_s_17.jpg" alt="產品名稱17"></a>
+                    <h2>產品名稱17</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_18.jpg" data-lightbox="product" data-title="產品名稱18"><img src="images/product/thumbs/pt_s_18.jpg" alt="產品名稱18"></a>
+                    <h2>產品名稱18</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_19.jpg" data-lightbox="product" data-title="產品名稱19"><img src="images/product/thumbs/pt_s_19.jpg" alt="產品名稱19"></a>
+                    <h2>產品名稱19</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_20.jpg" data-lightbox="product" data-title="產品名稱20"><img src="images/product/thumbs/pt_s_20.jpg" alt="產品名稱20"></a>
+                    <h2>產品名稱20</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_21.jpg" data-lightbox="product" data-title="產品名稱21"><img src="images/product/thumbs/pt_s_21.jpg" alt="產品名稱21"></a>
+                    <h2>產品名稱21</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_22.jpg" data-lightbox="product" data-title="產品名稱22"><img src="images/product/thumbs/pt_s_22.jpg" alt="產品名稱22"></a>
+                    <h2>產品名稱22</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_23.jpg" data-lightbox="product" data-title="產品名稱23"><img src="images/product/thumbs/pt_s_23.jpg" alt="產品名稱23"></a>
+                    <h2>產品名稱23</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_24.jpg" data-lightbox="product" data-title="產品名稱24"><img src="images/product/thumbs/pt_s_24.jpg" alt="產品名稱24"></a>
+                    <h2>產品名稱24</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_25.jpg" data-lightbox="product" data-title="產品名稱25"><img src="images/product/thumbs/pt_s_25.jpg" alt="產品名稱25"></a>
+                    <h2>產品名稱25</h2>
+                    <p>NT.9999</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="images/product/pt_26.jpg" data-lightbox="product" data-title="產品名稱26"><img src="images/product/thumbs/pt_s_26.jpg" alt="產品名稱26"></a>
+                    <h2>產品名稱26</h2>
+                    <p>NT.9999</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- 空一格&copy; Copyright符號 -->
+    <footer>Copyright &copy; IKEA all right reserved.</footer>
+
+
+    <!-- bootstrap-js -->
+    <script src="script/bootstrap.bundle.min.js"></script>
+    <!-- JQuery 原生js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <!-- JQuery ui js -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <!-- JQuery lightbox js。版本lightbox-plus-jquery.min.js -JQuery ui tabs頁籤相簿會失效 -->
+    <script src="script/lightbox.min.js"></script>
+    <!-- 自訂的js要最後被執行,需放最下方 -->
+    <script src="script/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,180 @@
+@charset "UTF-8";
+body {
+    font-family: 
+    /*⻄文*/ -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial,
+    /*中文*/ "Noto Sans TC","蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", sans-serif;
+}
+/* 設定bs-carousel輪播圖片尺寸 */
+/* .carousel-item沒有100vh,只是被overflow:hidden */
+.carousel-item {
+    /* calc()不同單位運算 + - * /,數學符號前後需空格,讓banner/nav能擠在同一頁 */
+    height: calc(100vh - 65px);
+}
+.carousel-item img {
+    object-fit: cover;
+    height: 100%;
+    /* bs已設寬100%,故設高即可 */
+}
+/* bs-nav */
+.navbar {
+    height: 65px;
+    /* 把navbar固定在上方,position: sticky;要在最外層 */
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+/* 加logo改名稱後調尺寸 */
+.navbar-brand {
+    width: 100px;
+    height: 65px;
+    margin-right: 65px;
+    line-height: 65px;
+    padding: 0;
+}
+/* 下拉選單標題樣式 */
+.dropdown-title {
+    /* font-size: 1.1rem; */
+    font-weight: bold;
+    padding-left: 15px;
+}
+/* btn-search改中文格式亂掉須重設,rem用於和文字有關,平常寬高設定首選%/px */
+.btn-search {
+    min-width: 4rem;
+    /* 把簍空按鈕上色,使漢堡狀態visually */
+    background: rgb(249, 251, 250);
+}
+/* 漢堡狀態的選單背景上色,調按鈕們的padding-left */
+.nav-link {
+    background: white;
+    padding-left: 15px;
+}
+/* ikea美食 */
+#foods {
+    display: flex;
+}
+.food_pt {
+    flex: 1;
+    background-image: url(../images/bg_food.jpg);
+    background-size: 100% 100%;/* 背景是幾何圖形可用,瀏覽器大小會影響圖片裡的圖形形狀 */
+    position: relative;
+}
+.food1 {
+    position: absolute;
+    /* bs有設figure的margin */
+    /* 之後搭配rwd,設位置單位要用%.right: -20%;可原本就不設定位置,直接做動畫設定 */
+    bottom: 0;
+                /*   時間 無限循環infinite 正向來回alternate */
+    animation: food1 2s both;
+}
+/* @keyframes寫在要設動畫的css下方,可和class同名.需加上Animations才有動畫 */
+@keyframes food1 {
+    /* 要設的指令最好和原本css有的設定同名 */
+    from { right: 100%; transform: rotate(90deg);}/* 設旋轉效果,0可不用deg */
+    to { right: -20%; transform: rotate(360deg);}
+}
+.food2 {
+    position: absolute;
+    /* left: 10%; 也可原本就不設定位置,直接做動畫設定*/
+    top: 30px;
+                /* 時間 延遲 直接執行from,to樣式 */
+    animation: food2 3s 1s both;
+}
+@keyframes food2 {
+    /* 要設的指令最好和原本css有的設定同名 */
+    from { left: -60%;  transform: rotate(90deg);}
+    to { left: 5%; transform: rotate(360deg);}
+}
+.food_text {
+    flex: 1;
+    padding: 10% 100px;
+}
+/* 標題區 */
+.title {
+    margin: 100px 0 20px;
+    padding-left: 20px;
+    border-left: 10px solid #0152B9;
+    position: relative;/* 當裝飾線的父層 */
+}
+.title span {
+    color: #0152B9;
+    font-size: 1.2rem;
+}
+.title::after {
+    content: '';/* 引號內也可放文字 */
+    position: absolute;/* 設position: absolute;或設display:block才會出現裝飾線，因before/after屬於行內元素不支援寬高及位置設定 */
+    background-color: #0152B9;
+    bottom: 0;
+    width: 80%;
+    height: 2px;
+    left: 12rem;/* 設文字後方裝飾線的位置，單位可用rem */
+}
+/* JQuery ui tabs頁籤相簿 */
+#tabs {
+    width: 80%;
+    margin: 0 auto;
+}
+#tabs img {
+    object-fit: contain;
+    /* 讓頁籤按鈕的img等比縮小 */
+    width: 100%;
+    height: 100%;
+}
+/* 讓相片按鈕變一排,ul第一個class名稱，以下設定都在網頁右鍵檢查找 */
+.ui-tabs .ui-tabs-nav {
+    display: flex;
+}
+.ui-tabs .ui-tabs-nav li {
+    /* 頁籤按鈕下框線 */
+    border-bottom-width: 1px;
+    /* 頁籤按鈕四周都有圓角 */
+    border-radius: 3px;
+}
+/* 從逗號以後換行,不影響指令.改頁籤作用後的顏色 */
+.ui-state-active, 
+.ui-widget-content .ui-state-active, 
+.ui-widget-header .ui-state-active, 
+a.ui-button:active, .ui-button:active, 
+.ui-button.ui-state-active:hover {
+    border: 1px solid #666;
+}
+/* 改掉頁籤作用前的灰色邊框 */
+.ui-state-default, 
+.ui-widget-content .ui-state-default, 
+.ui-widget-header .ui-state-default, 
+.ui-button, 
+html .ui-button.ui-state-disabled:hover, 
+html .ui-button.ui-state-disabled:active {
+    background-color: white;
+}
+/* 僅#tabs之下第一層div */
+#tabs>div {
+    display: flex;
+}
+#tabs>div> *{
+    flex: 1;
+    /* 圖片文字有間距 */
+    padding: 50px;
+}
+#tabs h3 {
+    background-color: #F9D615;
+    /* 寬度符合文字長度 */
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: .5rem 0 1rem;
+    font-size: 2rem;
+    font-weight: bolder;
+    box-shadow: 5px 5px 0 red;
+}
+/* 熱門商品hot */
+#hot img {
+    /* 讓a標籤按鈕的照片完整顯示 */
+    display: block;
+    width: 100%;
+}
+/* footer */
+footer {
+    height: 10vh;
+    background-color: #F9D615;
+    text-align: center;
+    line-height: 10vh;
+}

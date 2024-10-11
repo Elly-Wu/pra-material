@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- initial-scale=1.0讓網頁body在尺寸不同的瀏覽器看都不會變形失真,但favicon.ico會變形失真 -->
+    <title>Wonderful Garden</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="favicon.ico"><!-- google有，safari、live server沒有 -->
+</head>
+
+<body>
+    <!-- 業首 -->
+    <header id="top">
+        <h1 class="logo">
+            <a href="index.html">
+                <img src="images/logo_b.svg" alt="logo"></a>
+        </h1>
+        <div class="nav_box">
+            <button class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="navigation">
+                <!-- social-btn -->
+                <ul class="social">
+                    <li><a href="#" class="fb"></a></li>
+                    <li><a href="#" class="ig"></a></li>
+                    <li><a href="#" class="line"></a></li>
+                </ul>
+                <!-- menu-btn -->
+                <ul class="menu">
+                    <li><a href="#">HOME</a></li><!-- <a>打id換頁 -->
+                    <li><a href="#news">NEWS</a></li>
+                    <li><a href="#service">SERVICE</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#video">VIDEO</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main id="home">
+        <!-- <section id="banner"> //<section>,<main>等大型區塊標簽，預設為display:block
+            <img src="images/banner_1.jpg" alt=""> //滿版是因為img在css共用設定為width:100%
+        </section> //以下套用換圖輪播 -->
+
+        <section id="section-1">
+            <div class="content-slider">
+                <input type="radio" id="banner1" class="sec-1-input" name="banner"
+                    checked><!-- checked預設顯示banner1,由js控制循環播放banner2~4 -->
+                <input type="radio" id="banner2" class="sec-1-input" name="banner">
+                <input type="radio" id="banner3" class="sec-1-input" name="banner">
+                <input type="radio" id="banner4" class="sec-1-input" name="banner">
+                <input type="radio" id="banner5" class="sec-1-input" name="banner">
+                <div class="slider">
+                    <div id="top-banner-1" class="banner">
+                        <div class="banner-inner-wrapper">
+                            <h2>Creative Template</h2>
+                            <h1>Welcome<br>to Wonderful Garden</h1>
+                            <div class="line"></div>
+                            <div class="learn-more-button"><a href="#news">Learn More</a></div>
+                        </div>
+                    </div>
+                    <div id="top-banner-2" class="banner">
+                        <div class="banner-inner-wrapper">
+                            <h2>What We Serve</h2>
+                            <h1>Great<br>Wonderful Garden</h1>
+                            <div class="line"></div>
+                            <div class="learn-more-button"><a href="#service">Learn More</a></div>
+                        </div>
+                    </div>
+                    <div id="top-banner-3" class="banner">
+                        <div class="banner-inner-wrapper">
+                            <h2>Here We Are</h2>
+                            <h1>We Are<br>Wonderful Garden</h1>
+                            <div class="line"></div>
+                            <div class="learn-more-button"><a href="#about">Learn More</a></div>
+                        </div>
+                    </div>
+                    <div id="top-banner-4" class="banner">
+                        <div class="banner-inner-wrapper">
+                            <h2>Our Contacts</h2>
+                            <h1>Welcome<br>to Wonderful Garden</h1>
+                            <div class="line"></div>
+                            <div class="learn-more-button"><a href="#contact">Learn More</a></div>
+                        </div>
+                    </div>
+                    <div id="top-banner-5" class="banner">
+                        <div class="banner-inner-wrapper">
+                            <h2>Our Videos</h2>
+                            <h1>View More<br>about Wonderful Garden</h1>
+                            <div class="line"></div>
+                            <div class="learn-more-button"><a href="#video">Learn More</a></div>
+                        </div>
+                    </div>
+                </div>
+                <nav>
+                    <div class="controls">
+                        <label for="banner1"><span class="progressbar"><span
+                                    class="progressbar-fill"></span></span><span>01</span> news</label>
+                        <label for="banner2"><span class="progressbar"><span
+                                    class="progressbar-fill"></span></span><span>02</span> service</label>
+                        <label for="banner3"><span class="progressbar"><span
+                                    class="progressbar-fill"></span></span><span>03</span> about</label>
+                        <label for="banner4"><span class="progressbar"><span
+                                    class="progressbar-fill"></span></span><span>04</span> contact</label>
+                        <label for="banner5"><span class="progressbar"><span
+                                    class="progressbar-fill"></span></span><span>05</span> video</label>
+                    </div>
+                </nav>
+            </div>
+        </section>
+        <!-- section#*5>h2.title 之後能再用h2做其他樣式 -->
+        <section id="news">
+            <h2 class="title smoove">NEWS</h2>
+            <div class="list_box">
+                <!-- article*3>figure+h2+p+a -->
+                <!-- smoove旋轉載入 -->
+                <article class="list_item smoove" data-move-x="-350px" data-rotate="90deg">
+                    <figure><img src="images/pt_news1.jpg" alt=""></figure>
+                    <!-- 需要再用標籤包住img，在外標籤設定img的樣式，才能設定RWD(視窗放大縮小，圖片位置不變，尺寸依比例縮放) -->
+                    <h2>NEWS TITLE</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima nobis excepturi, nostrum
+                        doloremque harum in vitae cum. Quibusdam voluptate quos fugiat sapiente perspiciatis incidunt
+                        eum hic. Reprehenderit maiores cupiditate adipisci.</p>
+                    <a href="" class="more_btn">more ></a>
+                </article>
+                <article class="list_item smoove" data-move-x="-150px" data-rotate="45deg" data-move-y="100px">
+                    <figure><img src="images/pt_news2.jpg" alt=""></figure>
+                    <h2>NEWS TITLE</h2>
+                    <p>一種比如green是否利潤創作設1980備機票建設轉變成熟發佈，和平島flower由此留學五年能夠一面，減肥應當後果，各國能力收費似乎生意告知，貨幣委託意思，股市推坑王事業郵箱，姑娘咱們成長綜合實際大多日前稱為熱點同一畢竟跟我當然加入，類別一定要分公司變得估計保證這裡應用奇怪，家族數。
+                    </p>
+                    <a href="" class="more_btn">more ></a>
+                </article>
+                <article class="list_item smoove" data-move-x="350px" data-rotate="-90deg">
+                    <figure><img src="images/pt_news3.jpg" alt=""></figure>
+                    <h2>NEWS TITLE</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima nobis excepturi, nostrum
+                        doloremque harum in vitae cum. Quibusdam voluptate quos fugiat sapiente perspiciatis incidunt
+                        eum hic. Reprehenderit maiores cupiditate adipisci.</p>
+                    <a href="" class="more_btn">more ></a>
+                </article>
+            </div>
+        </section>
+        <section id="service">
+            <h2 class="title smoove">SERVICE</h2>
+            <!-- div.list_box>div.list_item*4>a>h2{SERVICE TITLE}+p -->
+            <div class="list_box">
+                <!-- smoove兩側下方載入 -->
+                <div class="list_item svc1 smoove" data-move-y="100px" data-move-x="-200px">
+                    <a href="">
+                        <h2>SERVICE TITLE</h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati temporibus totam esse
+                            aliquam accusantium amet quos, reiciendis vero corporis cupiditate dicta ab at nihil in ad
+                            assumenda minima. Est, adipisci.</p>
+                    </a>
+                </div>
+                <div class="list_item svc2 smoove" data-move-y="100px" data-move-x="-100px">
+                    <a href="">
+                        <h2>SERVICE TITLE</h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati temporibus totam esse
+                            aliquam accusantium amet quos, reiciendis vero corporis cupiditate dicta ab at nihil in ad
+                            assumenda minima. Est, adipisci.</p>
+                    </a>
+                </div>
+                <div class="list_item svc3 smoove" data-move-y="100px" data-move-x="100px">
+                    <a href="">
+                        <h2>SERVICE TITLE</h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati temporibus totam esse
+                            aliquam accusantium amet quos, reiciendis vero corporis cupiditate dicta ab at nihil in ad
+                            assumenda minima. Est, adipisci.</p>
+                    </a>
+                </div>
+                <div class="list_item svc4 smoove"  data-move-y="100px" data-move-x="200px">
+                    <a href="">
+                        <h2>SERVICE TITLE</h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati temporibus totam esse
+                            aliquam accusantium amet quos, reiciendis vero corporis cupiditate dicta ab at nihil in ad
+                            assumenda minima. Est, adipisci.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section id="about">
+            <div class="smoove">
+                <h2 class="title">ABOUT</h2>
+                <p class="scrollbox">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus accusamus non
+                    eius natus saepe
+                    doloribus asperiores cumque culpa illum quod consequatur quas fugit, rerum sed! Tempora dolore,
+                    laboriosam et sed voluptatibus id voluptatum ullam doloremque ea mollitia illum culpa iste quibusdam
+                    architecto eligendi non autem quos excepturi aliquam repudiandae? Tempore consequuntur doloremque
+                    enim itaque a architecto, quidem ipsa eos porro vero laboriosam, laudantium dolores rerum ducimus
+                    perferendis assumenda eius temporibus aliquid, pariatur minus quis cum? Expedita, esse culpa! Vero
+                    illum iure recusandae consequatur? Voluptatum consequuntur provident maiores repellendus rem
+                    asperiores autem. Amet architecto blanditiis eaque. Placeat illum ab nisi, nulla quidem sed id,
+                    doloribus aliquid laboriosam earum natus quam, laborum ex. Ipsum nobis architecto amet quisquam
+                    nostrum illum sit, earum ipsa aperiam libero, dignissimos voluptate molestias commodi deleniti vero
+                    deserunt maiores aliquam ut. Quas voluptates soluta alias nulla laudantium laborum libero veniam
+                    quod aperiam ad. Molestiae quibusdam voluptas recusandae soluta! Recusandae voluptatum beatae dolore
+                    magnam minima eligendi officia officiis quasi iure dignissimos. Deserunt vel soluta modi assumenda
+                    beatae, illo ipsa officia optio sit! Fugit aliquid explicabo quia, adipisci distinctio
+                    necessitatibus libero. Aut, sint! Laboriosam eum sint expedita minima nihil, ea officiis eveniet
+                    doloremque dolorem amet in reprehenderit repellendus perspiciatis deleniti, eius est quaerat
+                    distinctio quasi? Porro itaque, placeat corrupti dignissimos perferendis fugit nostrum deleniti. Ab
+                    reprehenderit modi rerum, inventore provident et odit veniam, velit earum quasi sed vero temporibus
+                    natus officiis in obcaecati optio. Ducimus magnam vero, porro ex amet alias vel voluptates veritatis
+                    dicta laudantium quos saepe voluptatibus sapiente, aliquam iste! Unde sequi esse iusto adipisci
+                    dolorum. Accusamus hic dolor velit iusto delectus, ab non sit corrupti. Quas repellendus alias
+                    dicta, quisquam labore, doloribus eligendi ex totam iusto explicabo, similique odio reprehenderit
+                    eveniet ab fugiat non aliquid modi. Neque odit architecto odio recusandae eum consequatur minima
+                    similique repellendus veniam consectetur nihil, molestias omnis placeat qui rerum soluta excepturi
+                    cumque laborum labore repudiandae harum amet perferendis. Soluta unde velit, mollitia deleniti
+                    sequi, distinctio earum magni exercitationem voluptatibus modi rem, quasi minima nemo hic. Pariatur
+                    perferendis alias sint possimus, repudiandae eaque! Quibusdam adipisci explicabo perferendis eum
+                    architecto similique numquam necessitatibus non repudiandae? Fugiat consequatur non impedit
+                    architecto molestiae, ipsa rem obcaecati quam laboriosam nisi, facere eum, aut dolores eaque magni
+                    quas neque quos. Dolore explicabo quidem rerum temporibus in, quasi voluptate. Possimus
+                    reprehenderit nesciunt dicta voluptates tempora accusamus alias quaerat, maxime sed, natus iusto
+                    iste totam. Minima officiis, perferendis, neque voluptates, iste veniam vel odit laboriosam quidem
+                    velit eaque incidunt debitis? Saepe, quam architecto modi dolore, voluptatem in nostrum placeat
+                    cumque harum autem repudiandae asperiores fugiat. Provident illum odio placeat deleniti qui facilis
+                    iusto sit asperiores optio numquam, ex eligendi delectus. Alias iste reprehenderit corrupti
+                    obcaecati tempore, fugit cum nulla quae consectetur aut excepturi ab? Voluptates aut tempore ut,
+                    quasi quidem exercitationem earum aspernatur magnam et, unde architecto cumque maiores temporibus
+                    quis necessitatibus! Tenetur debitis optio eius aperiam saepe porro impedit dolorum suscipit fuga,
+                    accusantium labore accusamus, ea odio in perspiciatis ex consequatur quis asperiores minus. Illum
+                    maxime animi, iusto ipsam aliquid tempore voluptate amet ut similique impedit praesentium
+                    consectetur libero expedita officiis culpa eius molestias esse at? Beatae quam et voluptas sapiente
+                    eveniet inventore aliquam dolorem labore architecto accusantium. Aperiam, consequatur soluta.
+                    Molestiae totam veritatis nobis vero ut dolor eius fugit libero sint. Nemo inventore culpa porro
+                    alias voluptates distinctio impedit, beatae delectus incidunt soluta laboriosam provident!
+                    Recusandae accusamus distinctio numquam eveniet doloribus hic itaque ullam, consectetur quo placeat
+                    id dicta consequuntur nostrum beatae! Laudantium quaerat odio eius perferendis ex eum cum
+                    reprehenderit? Maxime odio corrupti nisi odit atque id repudiandae, aut obcaecati sit impedit
+                    numquam officia accusantium laborum commodi nostrum hic fuga dolorum soluta minima veritatis ex
+                    error. Neque, ad. Error odio et sapiente repudiandae nobis nihil, voluptates illo sunt asperiores
+                    rem accusantium sit! Ratione animi cumque vitae rem illum architecto ullam exercitationem debitis
+                    aspernatur. Eveniet laborum dolorum reiciendis alias itaque facere et culpa hic provident eaque,
+                    ipsam omnis a magni exercitationem animi, voluptatibus dolor quia accusamus rerum, asperiores
+                    incidunt. Cum corrupti doloribus error velit odio ipsam non nostrum! Nisi, eaque quasi esse soluta
+                    laboriosam perferendis voluptatem blanditiis inventore dolorum porro qui dolorem voluptates quae
+                    corrupti, numquam ducimus ex impedit praesentium, dignissimos adipisci explicabo architecto vero ad
+                    pariatur! Velit quo similique odio maxime itaque architecto veritatis ratione tenetur iure. Neque
+                    aperiam dolorum enim eveniet est perspiciatis laudantium commodi adipisci. Sit esse architecto
+                    incidunt illo sed in perferendis iste vel obcaecati sequi nam ullam voluptas quisquam, pariatur,
+                    ratione maiores corporis enim error hic eos. Fuga, iste neque rerum in officiis adipisci veritatis,
+                    autem rem voluptas deserunt quod reprehenderit itaque, dolores fugiat blanditiis ducimus? Nemo nisi
+                    minus inventore porro, ipsum velit. Beatae aspernatur suscipit asperiores provident sequi iure,
+                    saepe aliquid nobis! Dolores exercitationem similique aperiam dolorem voluptatum quisquam, quas non
+                    facilis, repellendus debitis quis. Reprehenderit deleniti, ipsam molestiae et tenetur quia, earum
+                    nulla magnam esse accusantium cumque doloribus ex saepe, ab blanditiis illum voluptatem. Eos
+                    corrupti iure libero quis dolorem ducimus repellendus dignissimos doloribus at doloremque ipsam
+                    alias, magni veritatis mollitia eius delectus. Est ipsam natus porro quidem nam quas a enim optio
+                    laborum esse. Dignissimos pariatur ullam veniam eligendi delectus facere modi quasi praesentium
+                    provident dicta! Corporis dignissimos iure voluptatem provident rerum accusamus, magni rem natus
+                    suscipit corrupti quo veritatis exercitationem dolores quidem impedit inventore, dolor facilis, quam
+                    unde deserunt. Alias quos ex tenetur vitae nesciunt optio quis eveniet dolorem mollitia rerum ipsa
+                    velit natus molestiae consequuntur, magni iure similique commodi asperiores distinctio corrupti
+                    consequatur voluptate ipsam illo laudantium. Vel velit optio fuga impedit asperiores unde error
+                    labore! Dolores tempora ducimus corporis mollitia esse exercitationem, nisi commodi quis ipsam
+                    consequatur eius, repellat, officiis sequi praesentium facere? Facilis voluptatibus enim, corporis
+                    doloribus nobis eveniet tempora deserunt debitis iusto suscipit aperiam nulla! Facere, sit aliquid
+                    eaque, voluptates vero asperiores ea quas commodi accusantium quo repellendus veritatis nihil,
+                    blanditiis ratione quae illum dolores cupiditate officiis cumque adipisci est. Laudantium doloribus
+                    eaque veritatis illum necessitatibus perspiciatis provident beatae mollitia dignissimos ipsum,
+                    perferendis minima. Veniam nemo aliquam odio temporibus voluptatem culpa quia, rem explicabo atque.
+                </p>
+            </div>
+            <video src="images/flower.mp4" autoplay muted loop></video>
+            <!-- command+/註解 -->
+        </section>
+        <section id="video">
+            <h2 class="title smoove">VIDEO</h2>
+            <!-- video須加controls才有控制器，loop循環，autoplay自動播放要搭配muted靜音,poster指定影片封面 -->
+            <video class="smoove" src="images/Planter.mp4" controls poster="images/cover.jpg" playsinline></video>
+        </section>
+        <section id="contact">
+            <h2 class="title smoove">CONTACT</h2><!-- 最初標題至中,因為#home section在css有設過flexbox -->
+            <form id="contact_form" name="contact_form" method="post" action="" class="smoove">
+                <label for="username">*姓名:</label>
+                <input name="username" type="text" required="required" id="username" placeholder="請輸入姓名" title="姓名欄位"
+                    autocomplete="on">
+
+                <label for="email">*電子郵件:</label>
+                <input name="email" type="email" required="required" id="email" placeholder="sample@email.com"
+                    autocomplete="on">
+
+                <label for="tel">電話:</label>
+                <input name="tel" type="tel" id="tel" placeholder="電話或手機" autocomplete="on">
+
+                <label for="message">留言:</label>
+                <textarea name="message" rows="5" id="message" placeholder="你需要的服務項目"></textarea>
+
+                <button>
+                    <span>送出</span>
+                </button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        © 2023 Wonderful Garden. 保留一切權利。
+        <div id="gotop"><!-- 按鈕icon用svg檔,Ai製圖存svg;摳/下載svg程式碼/檔案 -->
+            <!-- <a href=""><img src="images/arrow-top.svg" alt="go top"></a> -->
+            <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <path
+                    d="M201.4 137.4c12.5-12.5 32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 205.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160z" />
+            </svg>
+            <!-- 有刪除預設height="1em" -->
+        </div>
+    </footer>
+    <!-- JQuery原始檔CDN,要先被執行,才能執行js -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- Smoove-CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smoove/0.2.10/jquery.smoove.min.js"></script>
+    <!-- 自訂的js -->
+    <script src="script/script.js"></script>
+</body>
+
+</html>

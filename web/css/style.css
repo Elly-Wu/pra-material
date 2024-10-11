@@ -1,0 +1,834 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Kalam&family=Raleway:wght@400;700;800&family=Noto+Sans+TC&display=swap');
+/* google fonts貼css適用多頁網站，只能在編碼之下的第二行，不能在reset區或更後面 */
+@font-face {
+	font-family: WigendaTypewrite;/* 複製這行定義到要使用的標籤貼上 */
+	src: url(../webfonts/WigendaTypewrite\ \ .ttf);
+}/* font-face放css哪個位子都可,使用下載字體的編輯位子 */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}/* reset.css結尾，
+---------------以下是共用的版面設定 */
+* {
+box-sizing: border-box;/* -----全域不累加邊框厚度&padding */
+}
+/* 一頁式換頁滑動效果 */
+/* html,body {
+	scroll-behavior: smooth;
+} */
+body {
+    font-family:
+/*⻄文*/ -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial,
+/*中文*/ "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", "Noto Sans TC",sans-serif;
+}/* font-family搜尋觸及電腦內建字體 */
+img {
+    display: block;/* img預設是行內區塊，此改成區塊元素 */
+    width: 100%;
+}
+a{/* 把全部的<a>改成區塊元素、去底線、換顏色 */
+	display: block;
+	text-decoration: none;
+	color: #444;
+}
+:root{/* 定義變數variables */
+	--light_grey:#ccc;/* 灰階 */
+	--grey:#999;
+	--deep_grey:#444;
+	--major_color:#f2edf0;/* 主色 */
+	--major_color2:#e6ece5;
+	--major_color3:#ecf0f4;
+	--lesser_color:#bf9899;/* 次色 */
+}
+/* ---------------------------------業首按鈕區 */
+#top{
+	display: flex;
+	justify-content: space-between;
+	padding: 40px;
+	position: fixed;/* 固定定位，不會跟捲軸跑 */
+	top: 0;left: 0;/* 定位在最頂端 */
+	width: 100%;/* 設fixed尺寸會照內容原始設定，要特別改 */
+	z-index: 999;/* z-index:-1~9,999.後續做的頁面會疊在按鈕上導致不能按 */
+}
+#top .logo{
+	width: 70px;
+}
+#top nav{
+	display: flex;
+	flex-direction: column;/* ------主軸垂直 */
+	align-items: flex-end;/* -------副軸水平 */
+}
+.social a{
+	width: 35px;
+	height: 35px;
+	margin: 5px;
+	transition: all .35s;/* 轉場效果，寫在父層滑入滑出都有效。寫在hover層滑出沒效 */
+}
+.menu{
+	margin: 10px 0;
+	padding: 10px 20px;
+	border-radius: 50px;/* 給再大的圓角都不會超過最小邊的1/2;給一個百分比會變圓形。 */
+	/* 玻璃擬態 */
+	background-color: rgba(255, 255, 255, 0.5);
+	box-shadow: 1px 1px 4px rgba(0, 0, 0, .1),
+	inset -1px -1px 5px rgba(255, 255, 255, 0.4);/* 做出有厚度的玻璃 */
+	/*-----   x y 模糊 展開(選填) rgba:0黑;255白;a透明度 */
+	backdrop-filter: blur(2px);/* 背景模糊效果 */
+}
+.menu a{
+	margin: 0 10px;/* 讓底線和字一樣寬 */
+	padding: 10px 0;
+	font-weight: 600;
+	color: var(--deep_grey);
+	border-bottom: solid 2px transparent;/* 先做隱形的底部邊框 */
+	transition: all .35s;/* 轉場效果，寫在父層滑入滑出都有效。寫在hover層滑出沒效,normal:0.35s */
+}
+.menu a:hover{
+	border-bottom: solid 2px var(--deep_grey);
+}
+#top ul{
+	display: flex;
+}
+/* icon、logo盡量用svg檔,圖片檔png被放大會變形 */
+.fb{
+	background-image: url(../images/icon-fb.svg);
+}
+.ig{
+	background-image: url(../images/icon-ig.svg);
+}
+.line{
+	background-image: url(../images/icon-line.svg);
+}
+.fb:hover{
+	background-image: url(../images/icon-fb-hover.svg);
+}
+.ig:hover{
+	background-image: url(../images/icon-ig-hover.svg);
+}
+.line:hover{
+	background-image: url(../images/icon-line-hover.svg);
+}
+/* 手機尺寸rwd */
+@media( min-width:577px){
+	.hamburger{
+		display: none;
+	}/* 讓非手機版不顯示短白點 */
+}
+@media ( max-width:576px ) {
+	/* 手機版選單列樣式 */
+	.menu {
+		display: flex;
+		flex-direction: column;
+		padding: 20px 10px;/* menu寬度變小 */
+		border-radius: 20px;/* menu四個圓角變小 */
+	  }
+	  .menu li {
+		margin-bottom: 20px;
+	  }
+	  .menu a {
+		font-family: Jost, sans-serif;
+		position: relative;
+		text-decoration: none;
+		color: black;
+		padding: 10px;
+	  }
+	  .icon {
+		display: flex;
+		justify-content: space-between;/* 讓三個社群媒體icon均分位子 */
+		margin-bottom: 20px;
+	  }
+	  .icon a {
+		width: 35px;
+		margin: 0 5px;
+	  }
+	  
+	  /* 漢堡按鈕  */
+	  .nav_box {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+	  }
+	  .hamburger {
+		display: inline-block;
+		cursor: pointer;
+		/*  修改button預設樣式  */
+		background-color: transparent;
+		border: none;
+		padding: 0;
+	  }
+	  .bar {
+		display: block;
+		width: 25px;
+		height: 3px;
+		background-color: #333;
+		margin: 5px auto;
+		transition: all 0.3s ease-in-out;
+	  }
+	  /* 三 變換為 X */
+	  .hamburger.is-active .bar:nth-child(2) {
+		opacity: 0;
+	  }
+	  .hamburger.is-active .bar:nth-child(1) {
+		transform: translateY(8px) rotate(45deg);
+	  }
+	  .hamburger.is-active .bar:nth-child(3) {
+		transform: translateY(-8px) rotate(-45deg);
+	  }
+	  /* 手機版主選單動態及定位 */
+	  .navigation {
+		display: none;
+		
+		position: absolute;
+		top: 30px;
+		right: 0;
+		/* background-color: rgba(0, 0, 0, 0.3);去除玻璃擬態下的背景色 */
+		  border-radius: 20px;
+		animation: navigation 0.35s both;
+	  }
+	  @keyframes navigation {
+		from {
+		  opacity: 1;
+		}
+		to {
+		  opacity: 0;
+		}
+	  }
+	  .navigation.show {
+		display: block;
+		animation: show 0.35s both;
+	  }
+	  @keyframes show {
+		from {
+		  opacity: 0;
+		}
+		to {
+		  opacity: 1;
+		}
+	  }
+}
+
+/* 通用區設定 */
+.title{
+	font-family: 'Kalam', cursive;
+	font-size: 3rem;
+	border-top: 5px solid var(--deep_grey);/* 分頁標題裝飾線 */
+	padding: 10px 15px;
+	margin-top: 50px;
+}
+/* 手機尺寸rwd */
+@media ( max-width:576px ) {/* 若改平板會維持3rem不會套用2rem */
+	.title{
+		font-size: 2rem;
+	}
+}
+/* home及主要內容共用區 */
+#home section{
+	height: 100vh;/* vh配合視窗大小顯示畫面 */
+	display: flex;
+	flex-direction: column;/* 主軸垂直，讓以下分頁的標題、內容呈現上下排列 */
+	justify-content: center;/* 主軸在100vh範圍內至中，文字需之後再改其他設定 */
+	align-items: center;/* 副軸至中 */
+}
+.list_box{
+	display: flex;/* 主軸水平 */
+	width: 75%;
+	max-width: 1350px;
+}
+.list_item{
+	margin: 20px;
+	flex: 1;/* 設水平排，flex:1是寬度；若變column，flex:1是高度 */
+	height: 65vh;
+	box-shadow: 3px 3px 5px rgba(0, 0, 0, .2);/* article .list_item只做陰影，不做邊框 */
+	border-radius: 20px;/* 外框設圓角,圖片的直角還是會凸出 */
+	overflow: hidden;/* 讓圖片凸出直角及超出的文字被.list_item的圓角藏住 */
+}
+/* banner */
+/* #banner{
+	overflow: hidden;/* 讓溢出banner區的img隱藏，overflow常用於設卷軸
+} */
+/* Section-1 Styles換圖蘿蔔 */
+#section-1 {
+	height: 38em;
+	color: #fff;
+	background-color: #222;
+  }
+  #section-1 .content-slider {
+	position: relative;
+	width: 100%;
+	height: 100%;
+  }
+  #section-1 .content-slider input {
+	display: none;
+  }
+  #section-1 .content-slider .slider {
+	position: relative;
+	width: inherit;
+	height: inherit;
+	overflow: hidden;
+  }
+  #section-1 .content-slider .slider .banner {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	z-index: 0;
+	width: inherit;
+	height: inherit;
+	text-align: center;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	transition: all 0.5s ease;
+  }
+  #section-1 .content-slider .slider .banner .banner-inner-wrapper {
+	height: 100%;
+	padding-top: 25vh;/* 原版是6em */
+	background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.4) 75%,transparent, rgba(0, 0, 0, 0.2) 90%);/* background-image: linear-gradient特殊漸層 */
+	box-sizing: border-box;
+  }
+  #section-1 .content-slider .slider .banner .banner-inner-wrapper h2 {
+	padding-bottom: 0.3em;
+	font-family: 'Kaushan Script', cursive;
+	font-weight: 400;
+	font-size: 2.5em;
+	text-transform: none;
+  }
+  #section-1 .content-slider .slider .banner .banner-inner-wrapper h1 {
+	font-size: 6em;
+	line-height: 95%;
+  }
+  #section-1 .content-slider .slider .banner .banner-inner-wrapper .line {
+	display: block;
+	width: 4em;
+	height: 0.1875em;
+	margin: 2.5em auto;
+	background: #fff;
+  }
+  #section-1 .content-slider .slider .banner .banner-inner-wrapper .learn-more-button {
+	padding-bottom: 5em;
+	z-index: 15 !important;
+  }
+  #section-1 .content-slider .slider .banner .banner-inner-wrapper .learn-more-button a {
+	padding: 0.5em 2em;
+	text-align: center;
+	font-family: Montserrat, sans-serif;
+	font-size: 0.875em;
+	color: #fff;
+	text-transform: uppercase;
+	border: 0.1875em solid #fff;
+	display: inline-block;/* 有支援寬高，和文字設定相同 */
+  }
+  #section-1 .content-slider .slider .banner .banner-inner-wrapper .learn-more-button a:hover {
+	color: #e88382;
+	border-color: #e88382;
+	transition: 0.3s;
+  }
+  #section-1 .content-slider .slider #top-banner-1 {
+	/* background,background-repeat,background-position寫在一起 */
+	background: url('../images/banner_1.jpg') no-repeat center center;
+	/* background-size需獨立一行 */
+	background-size: cover;
+  }
+  #section-1 .content-slider .slider #top-banner-2 {
+	background: url('../images/banner_2.jpg') no-repeat center center;
+	background-size: cover;
+  }
+  #section-1 .content-slider .slider #top-banner-3 {
+	background: url('../images/banner_3.jpg') no-repeat center center;
+	background-size: cover;
+  }
+  #section-1 .content-slider .slider #top-banner-4 {
+	background: url('../images/banner_4.jpg') no-repeat center center;
+	background-size: cover;
+  }
+  #section-1 .content-slider .slider #top-banner-5 {
+	background: url('../images/banner_5.jpg') no-repeat center center;
+	background-size: cover;
+  }
+  #section-1 .content-slider nav {
+	position: absolute;
+	bottom: 0.5em;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+  }
+  #section-1 .content-slider nav .controls {
+	display: block;
+	width: 75%;/* contact標籤頁的字太多,增加總寬度,才不會換行 */
+	margin: 0 auto;
+	font-family: Montserrat, sans-serif;
+	color: #fff;
+  }
+  #section-1 .content-slider nav .controls label {
+	position: relative;
+	display: inline-block;
+	width: 12%;/* 增加第5個banner,需縮小5個標籤頁的寬度,才不會換行 */
+	height: 3.1em;
+	overflow: hidden;
+	margin: 0 1em;
+	padding-top: 1em;
+	text-align: left;
+	text-transform: uppercase;
+	font-family: Montserrat, sans-serif;
+	font-size: 1em;
+	color: #f6eac5;
+	font-weight: 400;
+	cursor: pointer;
+	transition: all 0.3s;
+  }
+/* 手機尺寸rwd */
+@media ( max-width:576px ) {
+	/* 權重大的先打,小的打在下面 */
+	#section-1 .content-slider nav .controls {
+		width: 90%;/* 在手機尺寸時調寬輪播頁籤的範圍,成一排 */
+	}
+	#section-1 .content-slider nav .controls label {
+		margin: 0 8px;/* 在手機尺寸時縮小頁籤間左右外距 */
+		padding-top: 5px;/* 在手機尺寸時縮小各頁籤上方內距 */
+		font-size: .7rem;/* 在手機尺寸時縮小各頁籤英文名稱 */
+	}
+}
+  #section-1 .content-slider nav .controls label .progressbar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 3px;
+	width: 100%;
+	background: #f6eac5;
+	z-index: 100;
+  }
+  #section-1 .content-slider nav .controls label .progressbar .progressbar-fill {
+	position: inherit;
+	width: inherit;
+	height: inherit;
+	margin-left: -100%;
+	background: #e88382;
+  }
+  #section-1 .content-slider nav .controls label span {
+	font-size: 1.4em;
+	font-weight: 700;
+  }
+  #section-1 .content-slider nav .controls label:hover {
+	color: #e88382;
+  }
+  #section-1 .content-slider #banner1:checked ~ .slider #top-banner-1,
+  #section-1 .content-slider #banner2:checked ~ .slider #top-banner-2,
+  #section-1 .content-slider #banner3:checked ~ .slider #top-banner-3,
+  #section-1 .content-slider #banner4:checked ~ .slider #top-banner-4,
+  #section-1 .content-slider #banner5:checked ~ .slider #top-banner-5  {
+	opacity: 1;
+	z-index: 1;
+  }
+  #section-1 .content-slider #banner1:checked ~ nav label:nth-of-type(1),
+  #section-1 .content-slider #banner2:checked ~ nav label:nth-of-type(2),
+  #section-1 .content-slider #banner3:checked ~ nav label:nth-of-type(3),
+  #section-1 .content-slider #banner4:checked ~ nav label:nth-of-type(4),
+  #section-1 .content-slider #banner5:checked ~ nav label:nth-of-type(5)  {
+	cursor: default;
+	color: #fff;
+	transition: all 0.5s;
+  }
+  #section-1 .content-slider #banner1:checked ~ nav label:nth-of-type(1) .progressbar,
+  #section-1 .content-slider #banner2:checked ~ nav label:nth-of-type(2) .progressbar,
+  #section-1 .content-slider #banner3:checked ~ nav label:nth-of-type(3) .progressbar,
+  #section-1 .content-slider #banner4:checked ~ nav label:nth-of-type(4) .progressbar,
+  #section-1 .content-slider #banner5:checked ~ nav label:nth-of-type(5) .progressbar  {
+	background: #fff;
+  }
+  #section-1 .content-slider #banner1:checked ~ nav label:nth-of-type(1) .progressbar-fill,
+  #section-1 .content-slider #banner2:checked ~ nav label:nth-of-type(2) .progressbar-fill,
+  #section-1 .content-slider #banner3:checked ~ nav label:nth-of-type(3) .progressbar-fill,
+  #section-1 .content-slider #banner4:checked ~ nav label:nth-of-type(4) .progressbar-fill,
+  #section-1 .content-slider #banner5:checked ~ nav label:nth-of-type(5) .progressbar-fill  {
+	animation: progressBarFill 5s linear;
+  }
+  /* Animations */
+  @keyframes progressBarFill {
+	from {
+	  margin-left: -100%;
+	}
+	to {
+	  margin-left: 0;
+	}
+  }
+/* NEWS */
+#news{
+	background-color: var(--major_color);
+}
+#news figure{
+	overflow: hidden;
+	height: 35vh;
+}
+#news figure img{
+	object-fit: cover;/* 寫在img或video,需搭配寬100%及高100% */
+	height: 100%;/* 共用版面設定已設img的width100%,這裡加設height100% */
+}
+.list_item h2{
+	font-family: WigendaTypewrite, sans-serif;/* 增加思源無襯線字備用 */
+	font-size: 1.5rem;/* 字體調大 */
+	margin: 20px 20px 10px 20px;
+}
+.list_item p{/* 內文字級預設1rem=16px */
+	font-size: .9rem;
+	line-height: 1.35;/* 1.35x(0.9x16px)=19.44 */
+	margin: 10px 20px;
+	/* text-align: justify; *//* 齊行功能用在中文；英文少用齊行，會讓單字間間距太大 */
+	/* 以下是英文齊行，句尾單字拆到下一段，不建議用 */
+	/* word-wrap: break-word;
+	word-break: break-all; */
+}
+#news p{
+	overflow: hidden;
+	text-overflow: ellipsis;/* 設定省略為點點 */
+	display: -webkit-box;/* 多行省略-webkit-box */
+	-webkit-box-orient: vertical;/* 垂直 */
+	-webkit-line-clamp: 4;/* 只留4行 */
+}
+.more_btn{
+	margin: 10px 20px;
+	text-align: right;/* 移到右邊 */
+}
+.more_btn:hover{
+	color: #000;/* hover後字和底線都變黑 */
+	text-decoration: underline;/* hover後出現預設底線 */
+}
+/* 平板尺寸rwd */
+@media ( max-width:820px ) {
+	#news .list_box {
+		width: 90%;/* 平板的2欄news寬度變寬,原本在273行是75% */
+	}
+	#news .list_item:last-child {
+		display: none;/* 最後的子元素作用,平板只顯示2欄news */
+	}
+	#news p {
+		-webkit-line-clamp: 7;/* 變更行數 */
+	}
+}
+@media ( max-width:576px ) {
+	#news .list_item:nth-child(n+2) {
+		display: none;/* 第二個子元素作用,手機版只顯示1欄news */
+	}
+}
+/* SERVICE */
+#service{
+	background-color: var(--major_color2);
+}
+#service .list_item{/* 也可用position:absolute */
+	display: flex;
+	align-items: flex-end;/* 要把list_item推下去 */
+	background-size: cover;/* background-image預設為原圖尺寸,從左上角開始擷取,剪裁圖片中間,cover還不能縮寫 */
+	background-position: center center;/* 預設為X:0% Y:0% */
+}
+#service p{
+	/* 單行省略 */
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;/* 不換行 */
+}
+#service a{
+	background-color: rgba(0, 0, 0, .6);
+	color: white;
+	padding: 5px 0;
+	overflow: hidden;/* list_item設flex讓<a>變延展，<a>也要設overflow:hidden才能出現省略點點 */
+}
+.svc1{
+	background-image: url(../images/pt_svc1.jpg);
+}
+.svc2{
+	background-image: url(../images/pt_svc2.jpg);
+}
+.svc3{
+	background-image: url(../images/pt_svc3.jpg);
+}
+.svc4{
+	background-image: url(../images/pt_svc4.jpg);
+}
+/* 平板尺寸rwd */
+@media ( max-width:820px ) {
+	#service .list_box {
+		flex-direction: column;/* 改垂直排 */
+	}
+	#service .list_item:last-child {
+		display: none;/* 最後的子元素作用,平板顯示3欄 */
+	}
+	#service .list_item {
+		flex: none;/* 原flex:1變成高度,因此取消,重設高度 */
+		height: 22vh;
+	}
+}
+/* ABOUT */
+#about{
+	position: relative;/* 讓背景video以section #about為父層 */
+	background-color: rgba(202, 178, 179, 0.4);
+}
+#about div{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(191, 152, 153, 0.6);/* 可從顯示的調色器調透明度，色碼、rgba最常見 */
+	width: 60%;
+	height: 100vh;
+}
+#about .scrollbox{
+	width: 85%;
+	height: 70vh;
+	overflow: auto;/* auto超過出現卷軸scroll bar;scroll會顯示垂直、水平捲軸區 */
+	padding: 10px;
+}
+/* CodePen Custom scroll bar */  
+  .scrollbox::-webkit-scrollbar {
+	width: 10px;
+	background: #eeeeee59;
+	border-radius: 5px;
+  }
+  /* 下方水平滾動條 */
+  /* .scrollbox::-webkit-scrollbar:horizontal {
+	height: 10px;
+  } */
+  /* 至上、下、左、右的按鈕 */
+  /* .scrollbox::-webkit-scrollbar-button {
+	width: 10px;
+	height: 10px;
+	background: red;} */
+  /* 拖動把手 */
+  .scrollbox::-webkit-scrollbar-thumb {
+	background: #d59fa0;
+	border-radius: 5px;
+  }
+  /* 右下角2種捲軸交界處 */
+  /* .scrollbox::-webkit-scrollbar-corner {
+	background: black;} */
+#about video{
+	position: absolute;/* 把video往上移疊在div上 */
+	z-index: -1;/* 把video移到後面 */
+	object-fit: cover;/* 讓video滿版 */
+	width: 100%;
+	height: 100%;
+	filter: brightness(150%);
+}
+/* 平板尺寸rwd */
+@media ( max-width:820px ) {
+	#about div {
+		width: 86%;/* about捲軸文章區變寬 */
+	}
+}
+/* 手機尺寸rwd */
+@media ( max-width:576px ) {
+	#about div {
+		width: 100%;/* about捲軸文章區變寬 */
+	}
+}
+/* VIDEO */
+#video{
+	background-color: var(--major_color3);
+}
+video{
+	height: 60vh;/* 設好高度vh讓影片不隨視窗縮放而影響版面,若設寬度固定在大型螢幕影片會超過section長度 */
+}
+/* 平板以下尺寸rwd */
+@media ( max-width:820px ) {
+	#home #video{/* 因為#home層級比#video大 */
+		height: auto;/* 為減少上下留白,要單獨改section#video高度 */
+	}
+	#video video{/* 需加上id階層才不會讓about區的背景影片也有margin-bottom */
+		width: 80%;
+		height: auto;/* 設rwd覆蓋原本的height60vh,才能套用寬度80% */
+		margin-bottom: 50px;/* margin-bottom若設在#home#video會讓背景色斷掉變50px高的白色 */
+	}
+}
+/* CONTACT */
+#contact{
+	background-image: url(../images/bg_contact.jpg);/* 若圖片比螢幕小預設會重複repeat */
+	background-size: cover;
+	background-position: center;
+	background-attachment:fixed;/* 固定背景:讓背景不跟捲軸跑,滾動會有背景被下個頁面覆蓋的錯覺 */
+}
+#contact_form {
+	width: 35%;
+}
+/* 平板以下尺寸rwd */
+@media ( max-width:820px ) {
+	#contact_form {
+		width: 50%;
+	}
+}
+/* 手機以下尺寸rwd */
+@media ( max-width:576px ) {
+	#contact_form {
+		width: 65%;
+	}
+}
+#contact_form *{
+	width: 100%;
+}
+#contact_form label {
+	display: block;/* label預設是行內元素,改區塊元素,才能設margin/padding */
+	margin: 20px 0 10px;
+	color: var(--deep_grey);
+	font-size: .9rem;
+}
+#contact_form input,#contact_form textarea,#contact_form button{/* 加上button,也套用毛玻璃設定 */
+	/* 改輸入的字尺寸、顏色 */
+	font-size: 1.1rem;
+	color: rgb(173, 80, 80);
+	outline: none;/* 取消focus外框 */
+	padding: 10px;/* 讓placeholder和邊框有距離 */
+	/* 玻璃擬態 */
+	border: 1px solid rgba(255, 255, 255, 0.9);
+	background-color: rgba(255, 255, 255, 0.5);
+	box-shadow: 1px 1px 4px rgba(0, 0, 0, .1),
+	 inset -1px -1px 5px rgba(255, 255, 255, 0.4);
+	 backdrop-filter: blur(5px);
+}
+#contact_form input::placeholder,#contact_form textarea::placeholder{/* ::placeholder偽元素 */
+	/* 設定placeholder顏色、尺寸 */
+	color: var(--grey);
+	font-size: .7rem;
+}
+#contact_form input {
+	border-radius: 2rem;
+}
+#contact_form textarea {/* 可設height:11rem; */
+	border-radius: 20px;
+}
+/* CSS button hover */
+#contact_form button {/* 需加id才能改寬度,因為上面設過#contact_form ＊的尺寸,且id權重較大 */
+	/* position: relative;
+	outline: none;
+	text-decoration: none; */
+	border-radius: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	text-transform: uppercase;
+	height: 30px;
+	width: 110px;
+	margin: 20px auto 0;/* 能支援設定寬高的標籤，就能用左右外距auto強迫至中 */
+	background-color: rgba(255, 255, 255, 0.9);
+	/* opacity: 1;
+	border: 1px solid rgba(22, 76, 167, 0.6); */
+  }
+  button span {
+	color: rgb(173, 80, 80);
+	font-size: 12px;
+	font-weight: 500;
+	letter-spacing: 0.7px;
+  }
+  button:hover {
+	animation: rotate 0.7s ease-in-out both;
+  }
+  button:hover span {
+	animation: storm 0.7s ease-in-out both;
+	animation-delay: 0.06s;
+  }
+  
+  @keyframes rotate {
+	0% {
+	  transform: rotate(0deg) translate3d(0, 0, 0);
+	}
+	25% {
+	  transform: rotate(3deg) translate3d(0, 0, 0);
+	}
+	50% {
+	  transform: rotate(-3deg) translate3d(0, 0, 0);
+	}
+	75% {
+	  transform: rotate(1deg) translate3d(0, 0, 0);
+	}
+	100% {
+	  transform: rotate(0deg) translate3d(0, 0, 0);
+	}
+  }
+  @keyframes storm {
+	0% {
+	  transform: translate3d(0, 0, 0) translateZ(0);
+	}
+	25% {
+	  transform: translate3d(4px, 0, 0) translateZ(0);
+	}
+	50% {
+	  transform: translate3d(-3px, 0, 0) translateZ(0);
+	}
+	75% {
+	  transform: translate3d(2px, 0, 0) translateZ(0);
+	}
+	100% {
+	  transform: translate3d(0, 0, 0) translateZ(0);
+	}
+  }
+/* footer */
+footer {
+	background-color: var(--lesser_color);
+	color: white;
+	text-align: center;
+	padding: 20px 0 10px;
+}
+#gotop {
+	/* 固定位置在右下,fixed以視窗為父層 */
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	z-index: 999;/* 讓gotop按鈕浮在最上面 */
+	display: none;/* gotop的css/js都設好再設none */
+	/* 設定外觀 */
+	width: 50px;
+	height: 50px;
+	padding: 5px;
+	background-color: rgba(241, 117, 115, 0.7);/* rgba的透明度不會被js設定影響 */
+	/* opacity: .4;會讓裡面的字、圖形都變透明,也會被js設定改變 */
+	border-radius: 50%;
+	cursor: pointer;/* 設定hover有小手(div標籤沒小手) */
+}
+#gotop svg {
+	fill: #fff;/* svg標籤改顏色語法類似Ai/Ps */
+}
+/* 平板尺寸rwd */
+@media ( max-width:820px ) {}
+/* 手機尺寸rwd */
+@media ( max-width:576px ) {}
