@@ -1,4 +1,4 @@
 <ul>
-  <li>The flower shop is the folder web.</li>
-  <li>The furniture store is the folder ikea-web</li>
+  <li>Flower shop是 web資料夾</li>
+  <li>Furniture是 ikea-web資料夾</li>
 </ul>
